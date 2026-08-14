@@ -18,16 +18,17 @@
                         <span class="text-xl font-bold bg-indigo-600 text-white px-3 py-1 rounded shadow-sm">DevPulse</span>
                     </a>
                 </div>
+                <!-- Nav Links (Dynamic) -->
                 <div class="hidden md:flex space-x-4">
-                    <a href="/" class="hover:bg-slate-800 px-3 py-2 rounded text-sm font-medium transition">Home</a>
-                    <a href="/workshops" class="hover:bg-slate-800 px-3 py-2 rounded text-sm font-medium transition">Workshops</a>
-                    <a href="/about" class="hover:bg-slate-800 px-3 py-2 rounded text-sm font-medium transition">About</a>
-                    <a href="/contact" class="hover:bg-slate-800 px-3 py-2 rounded text-sm font-medium transition">Contact</a>
+                    <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                    <x-nav-link href="/workshops" :active="request()->is('workshops') || request()->is('workshops/*')">Workshops</x-nav-link>
+                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </div>
                 <div>
-                    <a href="/workshops" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm transition">
+                    <x-button href="/workshops">
                         Explore Workshops
-                    </a>
+                    </x-button>
                 </div>
             </div>
         </div>
